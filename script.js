@@ -1,29 +1,29 @@
-let startbutton=document.querySelector('#start');
-let stopbutton=document.querySelector('#stop');
-let resetbutton=document.querySelector('#reset');
+let startButton=document.querySelector('#start');
+let stopButton=document.querySelector('#stop');
+let resetButton=document.querySelector('#reset');
 
-let hrtext=document.querySelector('#hr');
-let mintext=document.querySelector('#min');
-let sectext=document.querySelector('#sec');
+let hrText=document.querySelector('#hr');
+let minText=document.querySelector('#min');
+let secText=document.querySelector('#sec');
 
 let hr=0,min=0,sec=0;
 let stopwatch;
 
 function timer(){
     if(sec<10)
-    sectext.innerHTML="0"+sec;
+    secText.innerHTML="0"+sec;
     else 
-    sectext.innerHTML=sec;
+    secText.innerHTML=sec;
 
     if(min<10)
-    mintext.innerHTML="0"+min;
+    minText.innerHTML="0"+min;
     else
-    mintext.innerHTML=min;
+    minText.innerHTML=min;
 
     if(hr<10)
-    hrtext.innerHTML="0"+hr;
+    hrText.innerHTML="0"+hr;
     else
-    hrtext.innerHTML=hr;
+    hrText.innerHTML=hr;
 
     sec++;
     if(sec==60){
@@ -35,26 +35,26 @@ function timer(){
     hr++;
     }
 }
-startbutton.addEventListener('click',function(){
+startButton.addEventListener('click',function(){
     timer();
     stopwatch=setInterval(timer,1000);
-    startbutton.disabled=true;
+    startButton.disabled=true;
 });
 
-stopbutton.addEventListener('click',function(){
+stopButton.addEventListener('click',function(){
     clearInterval(stopwatch);
-    startbutton.disabled=false;
+    startButton.disabled=false;
 });
 
-resetbutton.addEventListener('click',function(){
+resetButton.addEventListener('click',function(){
     hr=0;
     min=0;
     sec=0;
-    hrtext.innerHTML="00";
-    mintext.innerHTML="00";
-    sectext.innerHTML="00";
+    hrText.innerHTML="00";
+    minText.innerHTML="00";
+    secText.innerHTML="00";
     clearInterval(stopwatch);
-    startbutton.disabled=false;
+    startButton.disabled=false;
     });
 
 
